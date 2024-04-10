@@ -21,7 +21,11 @@ cd A-SQL-A
 ```
 3. Inside the A-SQL-A folder, fill in the necessary API keys in the .env file.
 4. Place the CSV file that you want to convert into a database inside the src/csv folder within the A-SQL-A folder.
-5. Run main.py
+5. Install the required libraries
+```Python
+pip install -r requirements.txt
+```
+6. Run main.py
 ```Python
 py -m main
 ```

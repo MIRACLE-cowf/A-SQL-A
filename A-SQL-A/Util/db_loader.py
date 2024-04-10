@@ -7,12 +7,14 @@ parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 def create_dot_db_from_csv(_csv_file_path: str, _db_name: str) -> None:
+    """Create new .db file from given csv file path."""
     df = pd.read_csv(_csv_file_path)
     engine = create_engine(f"sqlite:///" + os.path.join(parent_dir, 'src/db', f'{_db_name}.db'))
     df.to_sql(_db_name, engine, index=False)
 
 
 def load_db(db_name: str) -> SQLDatabase | None:
+    """Load .db file from given database name. If there is no .db file, try to create one."""
     db_path = os.path.join('src/db/', f'{db_name}.db')
     if not os.path.exists(db_path):
         csv_file_name = input('Enter the only "csv" file "name" to convert into database: ')

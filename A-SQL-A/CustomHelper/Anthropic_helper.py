@@ -10,7 +10,8 @@ from CustomHelper.Custom_AnthropicAgentOutputParser import AnthropicAgentAction
 def _create_tool_message(
     agent_action: AnthropicAgentAction, observation: str
 ) -> ToolMessage:
-    """Convert agent action and observation into a function message.
+    """ This is basically same as LangChain's '_create_tool_message' function
+    Convert agent action and observation into a function message.
     Args:
         agent_action: the tool invocation request from the agent
         observation: the result of the tool invocation

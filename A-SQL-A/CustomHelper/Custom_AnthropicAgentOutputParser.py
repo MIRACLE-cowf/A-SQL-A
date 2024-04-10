@@ -20,8 +20,9 @@ def is_tool_use(content):
         return False
 
 
-# We can use basically same as LangChain's 'OpenAIAgentOutputParser' but a little bit custom is there.
+
 class AnthropicAgentOutputParser_beta(AgentOutputParser):
+    """We can use basically same as LangChain's 'OpenAIAgentOutputParser' but a little bit custom is there."""
     @property
     def _type(self) -> str:
         return "json_functions"
@@ -42,7 +43,7 @@ class AnthropicAgentOutputParser_beta(AgentOutputParser):
             raise OutputParserException(
                 "This output parser can only be used with a chat generation."
             )
-        print(f"AGENT OUTCOME: {generation.message.content}")
+        # print(f"AGENT OUTCOME: {generation.message.content}")
         if is_tool_use(generation.message.content):
             actions: List = []
             message_content = generation.message.content

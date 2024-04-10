@@ -1,0 +1,2 @@
+Put .csv in this folder.
+After put .csv in this folder, you can delete this file!

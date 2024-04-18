@@ -50,6 +50,8 @@ class AnthropicAgentOutputParser_beta(AgentOutputParser):
 
             tool_content = None
             for content in message_content:
+                if isinstance(content, dict) and 'type' in content and content['type'] == 'text':
+                    print(f"LLM:\n{content['text']}")
                 if isinstance(content, dict) and 'id' in content and 'name' in content and 'input' in content:
                     tool_content = content
                     break
